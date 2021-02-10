@@ -1,0 +1,18 @@
+.input {
+  width: 100px;
+  height: 40px;
+  font-size: 18px;
+  border: 1px solid #eeeeee;
+}
+
+.small {
+  width: 150px;
+}
+
+.medium {
+  width: 250px;
+}
+
+.large {
+  width: 350px;
+}
