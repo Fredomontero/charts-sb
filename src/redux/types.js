@@ -1,0 +1,5 @@
+export const GET_USERS = 'GET_USERS';
+
+export const GET_DATA_REQUEST = 'GET_DATA_REQUEST';
+export const GET_DATA_SUCCESSFUL = 'GET_DATA_SUCCESSFUL';
+export const GET_DATA_FAIL = 'GET_DATA_FAIL';

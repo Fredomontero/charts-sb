@@ -1,4 +1,10 @@
-.chartContainer {
-  background-color: brown;
+.chart-container {
+  border: 1px solid brown;
+  padding: 20px;
+  min-height: 500px;
+  max-height: 700px;
+}
+
+#myChart {
   height: 100%;
 }
