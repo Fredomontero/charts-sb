@@ -33,8 +33,16 @@ function App() {
   return (
     <div>
       <h1>Exercise #41</h1>
-      <div className="chartContainer">
+      <div>
         <LineChart data={ data } color="blue"/>
+      </div>
+      <div className="buttons-container">
+        <div className="btn btn-primary">
+          Load Data
+        </div>
+        <div className="btn btn-danger">
+          Unload Data
+        </div>
       </div>
     </div>
   );
