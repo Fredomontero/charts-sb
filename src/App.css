@@ -12,7 +12,13 @@
   border-radius: 5px;
   min-width: 125px;
   text-align: center;
+  cursor: pointer;
 } 
+
+.btn:hover {
+  transform: scale(1.15);
+  transition: ease;
+}
 
 .btn-primary {
   background-color: 	#318ce7;

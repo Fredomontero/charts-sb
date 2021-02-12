@@ -8,7 +8,8 @@ const LineChart = ({ data, color }) => {
   // console.log("The color is: ", color);
 
   useEffect(() => {
-    if(data.labels)
+    console.log("DATA: ", data)
+    if(data.data.labels)
       createChart();
   }, [data])
 
@@ -17,10 +18,10 @@ const LineChart = ({ data, color }) => {
     var myLineChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: data.labels,
+        labels: data.data.labels,
         datasets: [{
             label: '# of Votes',
-            data: data.values,
+            data: data.data.values,
             backgroundColor: 'rgba(255, 0, 0, 0.3)',
             borderColor: 'rgb(255, 0, 0)',
             borderWidth: 1
@@ -35,9 +36,13 @@ const LineChart = ({ data, color }) => {
 
   return (
     <div className="chart-container">
-      <canvas id="myChart"></canvas>
+      {
+        (data.data.labels) ? (<canvas id="myChart"></canvas>) : (<h1>No data</h1>)
+      }
     </div>
   )
 }
 
 export default LineChart
+
+//admision@ailabschool.com
