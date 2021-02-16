@@ -26,3 +26,19 @@ export const unloadDataError = (error) => ({
   type: type.UNLOAD_DATA_FAIL,
   payload: error
 });
+
+//------
+
+export const updateSecondsRequest = () => ({
+  type: type.UPDATE_SECONDS_REQUEST
+});
+
+export const updateSecondsSuccess = (seconds) => ({
+  type: type.UPDATE_SECONDS_SUCCESS,
+  payload: seconds
+});
+
+export const updateSecondsError = (error) => ({
+  type: type.UPDATE_SECONDS_FAIL,
+  payload: error
+});

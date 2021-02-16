@@ -8,6 +8,7 @@ function* loadData() {
   try{
     let res = yield fetch(apiUrl);
     let resData = yield res.json();
+    console.log("RESTDATA: ", resData);
     if(resData.errors){
         yield put(loadDataError(resData.errors[0].message));    
     }else{

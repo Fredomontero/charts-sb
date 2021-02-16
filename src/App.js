@@ -14,7 +14,7 @@ function App() {
     <div>
       <h1>Exercise #41</h1>
       <div>
-        <LineChart data={ dataSet } color="blue"/>
+        <LineChart dataset={ dataSet } color="blue"/>
       </div>
       <div className="buttons-container">
         <div className="btn btn-primary" onClick={() => dispatch(loadDataRequest())} >
@@ -23,6 +23,9 @@ function App() {
         <div className="btn btn-danger">
           Unload Data
         </div>
+      </div>
+      <div className="seconds-container">
+        <h1>{dataSet.seconds}</h1>
       </div>
     </div>
   );

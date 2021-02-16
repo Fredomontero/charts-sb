@@ -1,13 +1,14 @@
 import * as type from '../types';
 
 const initialState = {
-  data: [],
+  labels: [],
+  values: [],
+  seconds: 0
 }
 
-export default function data(state = initialState, action) {
+export default function dataReducer(state = initialState, action) {
   switch(action.type) {
     case type.LOAD_DATA_SUCCESS:
-      console.log("The data is: ", action.payload.bpi);
       let reqData = action.payload;
       let dataset = {labels: [], values: []};
       for(const property in reqData.bpi) {
@@ -16,9 +17,16 @@ export default function data(state = initialState, action) {
       }
       return {
         ...state,
-        data: dataset
+        labels: dataset.labels,
+        values: dataset.values
       }
-      default: 
-        return state;
+    case type.UPDATE_SECONDS_SUCCESS:
+      console.log("SECONDS: ", action.payload);
+      return {
+        ...state,
+        seconds: action.payload
+      }
+    default: 
+      return state;
   }
 }
