@@ -2,8 +2,7 @@ import * as type from '../types';
 
 const initialState = {
   labels: [],
-  values: [],
-  seconds: 0
+  values: []
 }
 
 export default function dataReducer(state = initialState, action) {
@@ -17,14 +16,8 @@ export default function dataReducer(state = initialState, action) {
       }
       return {
         ...state,
-        labels: dataset.labels,
-        values: dataset.values
-      }
-    case type.UPDATE_SECONDS_SUCCESS:
-      console.log("SECONDS: ", action.payload);
-      return {
-        ...state,
-        seconds: action.payload
+        labels: [...state.labels, ...dataset.labels],
+        values: [...state.values, ...dataset.values]
       }
     default: 
       return state;
