@@ -9,10 +9,7 @@ function App() {
 
   return (
     <div>
-      <h1>Exercise #41</h1>
-      <div>
-        <LineChart dataset={{}}/>
-      </div>
+      <LineChart title={"Bitcoin price"} dataset={dataSet} color="#ff004f"/>
     </div>
   );
 }

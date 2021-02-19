@@ -1,8 +1,9 @@
-import React, { useEffect, useRef  } from 'react'
+import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
-import nodata from '../../nodata.png'
+import nodata from '../../nodata.png';
+import './LineChart.css';
 
-const LineChart = ({ dataset, color }) => {
+const LineChart = ({ title, dataset, color }) => {
 
   const chartRef = useRef(null);
 
@@ -13,13 +14,17 @@ const LineChart = ({ dataset, color }) => {
       chartData.data.datasets[0].borderColor = color;
       chartData.update();
     }
-  }, [])
+  }, [color])
 
   useEffect(() => {
-    if(dataset.labels && data){
+    if(dataset.labels){
       let chartData = chartRef.current.chartInstance;
-      chartData.data.labels.push(...dataset.labels);
-      chartData.data.datasets[0].data.push(...dataset.values);
+      for(let index = 0; index < dataset.labels.length; index++){
+        if(chartData.data.labels.length < 100) {
+          chartData.data.labels.push(dataset.labels[index]);
+          chartData.data.datasets[0].data.push(dataset.values[index]);
+        }
+      }
       chartData.update();
     }
   }, [dataset])
@@ -28,7 +33,7 @@ const LineChart = ({ dataset, color }) => {
     labels: [],
     datasets: [
       {
-        label: '# of Votes',
+        label: title,
         data: [],
         fill: false,
       },
@@ -51,13 +56,20 @@ const LineChart = ({ dataset, color }) => {
     <div className="chart-container">
       {
         (dataset.labels) ? 
-        (<Line 
-          ref={chartRef} 
-          data={data} 
-          options={options}
-        />) :
-        (<div>
-          <img src={nodata} width={200} height={200}/>
+        (
+          <>
+            <Line 
+              ref={chartRef} 
+              data={data} 
+              options={options}
+              id="chart"
+            />
+            {(dataset.labels.length > 100) ? (<div id="overflow-error" className="overflow-error">
+              This chart supports 100 data points max
+            </div>) : (null)}
+          </>) :
+        (<div className="no-data-container">
+          <img src={nodata} alt="no data"/>
           <h1>No Data</h1>
         </div>)
       }

@@ -1,0 +1,34 @@
+.chart-container {
+  margin: 50px 100px;
+  text-align: center;
+}
+
+.chartjs-render-monitor {
+  max-height: 700px;
+}
+
+.no-data-container {
+  display: inline-block;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 20px 	#dcdcdc;
+}
+
+.no-data-container img {
+  width: 200px;
+  height: 200px;
+}
+
+.no-data-container h1 {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.overflow-error {
+  margin-top: 50px;
+  background-color: #ff004f;
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 10px;
+  color: #ffffff;
+  font-size: 20px;
+}
