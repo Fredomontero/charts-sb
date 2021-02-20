@@ -58,12 +58,14 @@ const LineChart = ({ title, dataset, color }) => {
         (dataset.labels) ? 
         (
           <>
+            <h1 className="chart-title" >{title}</h1>
             <Line 
               ref={chartRef} 
               data={data} 
               options={options}
               id="chart"
             />
+            <p className="dataset-size" >Dataset size: {(dataset.labels.length > 100) ? "100" : dataset.labels.length}</p>
             {(dataset.labels.length > 100) ? (<div id="overflow-error" className="overflow-error">
               This chart supports 100 data points max
             </div>) : (null)}

@@ -1,10 +1,18 @@
 .chart-container {
   margin: 50px 100px;
-  text-align: center;
 }
 
 .chartjs-render-monitor {
   max-height: 700px;
+}
+
+.chart-title {
+  margin-bottom: 50px;
+}
+
+.dataset-size {
+  margin-top: 50px;
+  font-size: 20px;
 }
 
 .no-data-container {
